@@ -31,14 +31,10 @@ public class AlertTest {
         driver.findElement(By.id("alertButton")).click();
         Alert alertConfirmacion = driver.switchTo().alert();
         alertConfirmacion.accept();
-
-
-
     }
 
     @Test
     public void testAlertWait(){
-
         duracion = Duration.ofSeconds(10);
         wait = new WebDriverWait(driver,duracion);
         driver.manage().window().maximize();
@@ -47,9 +43,6 @@ public class AlertTest {
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alertConfirmacion = driver.switchTo().alert();
         alertConfirmacion.accept();
-
-
-
     }
 
 

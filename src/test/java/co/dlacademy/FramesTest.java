@@ -13,8 +13,7 @@ import java.time.Duration;
 public class FramesTest {
 
     private WebDriver driver;
-    private WebDriverWait wait;
-    private Duration duracion;
+
     @BeforeEach
     void setup(){
         System.setProperty("webdriver.chrome.driver","src/test/resources/drivers/chromedriver.exe");

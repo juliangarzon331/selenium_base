@@ -1,4 +1,4 @@
-package co.dlacademy;
+package co.dlacademy.page_object;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;

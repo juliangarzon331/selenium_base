@@ -1,20 +1,19 @@
 package co.dlacademy;
 
+import co.dlacademy.page_object.ByDiplomado;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
+import static co.dlacademy.utils.HandleData.convertirStringDobleSinSigno;
 
 
 public class SauceDemoTest {
@@ -93,8 +92,8 @@ public class SauceDemoTest {
 
         for (int i = 0; i<precioProductos.size();i++){
             precio=precioProductos.get(i).findElement(By.className("inventory_item_price")).getText();
-            precio=precio.replace("$","");
-            if(Double.parseDouble(precio)<20.00){
+            //precio=precio.replace("$","");
+            if(convertirStringDobleSinSigno(precio)<20.00){
                 System.out.println("Hola");
                 precioProductos.get(i).findElement((By.className("btn"))).click();
             }
@@ -110,7 +109,7 @@ public class SauceDemoTest {
     @Test
     public void loginEnSauceDemoExistosoConDataTest(){
         driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com/v1/");
+        driver.get("https://www.saucedemo.com/");
 
         driver.findElement(ByDiplomado.dataTest("username")).sendKeys("standard_user");
         driver.findElement(ByDiplomado.dataTest("password")).sendKeys("secret_sauce");
